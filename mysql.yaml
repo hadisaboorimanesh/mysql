@@ -32,7 +32,7 @@ spec:
       imagePullSecrets:
         - name: hasti-docker-repo
       containers:
-      - image: docker.hasti.co/alpha/mysql:latest
+      - image: mysql:latest
         name: mysql
         resources:
             limits:
