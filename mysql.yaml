@@ -9,21 +9,7 @@ spec:
   selector:
     app: mysql
   clusterIP: None
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: mysql-pv-claim
-  namespace: test
-  labels:
-    app: mysql
-spec:
-  storageClassName: longhorn
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
+
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -82,14 +68,9 @@ spec:
         - containerPort: 3306
           name: mysql
         volumeMounts:
-        - name: mysql-persistent-storage
-          mountPath: /var/lib/mysql
         - name: mysql-config-volume
           mountPath: /etc/mysql/conf.d
       volumes:
-      - name: mysql-persistent-storage
-        persistentVolumeClaim:
-          claimName: mysql-pv-claim
       - name: mysql-config-volume
         configMap:
           name: mysql-config
