@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: elsaworkflow-adminapi
+  namespace: test
+data:
+  Consul__Keys: <Consul__Keys>
+  Consul__Server: <Consul__Server>
+  Consul__Token: <Consul__Token>
+  ASPNETCORE_HTTP_PORTS: <ASPNETCORE_HTTP_PORTS>
+  ASPNETCORE_ENVIRONMENT: <ASPNETCORE_ENVIRONMENT>
+  kubernetes: <kubernetes>
